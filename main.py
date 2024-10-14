@@ -104,7 +104,6 @@ class TelegramSessionManager:
             raise Exception("Нет валидных сессий")
         result = []
         while ids:
-            print(len(ids), len(valid_sessions))
 
             valid_sessions_count = len(valid_sessions)
             if valid_sessions_count == 0:
