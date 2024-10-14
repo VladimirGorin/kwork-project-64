@@ -130,7 +130,7 @@ class TelegramSessionManager:
                             line = message["line"]
                             logging.info(f"Отправляем ID: {message_id} через сессию {session_name}.")
                             await client.send_message(TARGET_BOT, message_id)
-                            await asyncio.sleep(7)
+                            await asyncio.sleep(10)
                             async for response in client.iter_messages(TARGET_BOT, limit=1):
                                 result.append({"text": response.text, "line": str(line)})
 
@@ -154,7 +154,7 @@ session_manager = TelegramSessionManager('./sessions', './bad_sessions.txt')
 def save_state_to_file(data):
     try:
         with open(STATE_FILE, 'w') as f:
-            json.dump(data, f)
+            json.dump(data, f, ensure_ascii=False)
         logging.info(f"Состояние успешно сохранено в {STATE_FILE}.")
     except Exception as e:
         logging.error(f"Ошибка при сохранении состояния: {e}")
@@ -179,6 +179,7 @@ async def process_ids():
         return jsonify({'error': 'Поле "ids" обязательно.'}), 400
     ids = data['ids']
     sessions = session_manager.get_sessions()
+
     if not sessions:
         logging.error('Нет доступных сессий.')
         return jsonify({'error': 'Нет доступных сессий.'}), 400

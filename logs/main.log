@@ -572,3 +572,61 @@
 2024-10-14 20:30:56,947 - INFO - Disconnecting from 149.154.167.51:443/TcpFull...
 2024-10-14 20:30:56,948 - INFO - Disconnection from 149.154.167.51:443/TcpFull complete!
 2024-10-14 20:30:56,951 - INFO - 127.0.0.1 - - [14/Oct/2024 20:30:56] "POST /api/get_info HTTP/1.1" 200 -
+2024-10-14 22:18:28,891 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.103:8080
+2024-10-14 22:18:28,891 - INFO - [33mPress CTRL+C to quit[0m
+2024-10-14 22:19:34,252 - INFO - Connecting to 149.154.167.51:443/TcpFull...
+2024-10-14 22:19:34,359 - INFO - Connection to 149.154.167.51:443/TcpFull complete!
+2024-10-14 22:19:34,771 - INFO - Disconnecting from 149.154.167.51:443/TcpFull...
+2024-10-14 22:19:34,772 - INFO - Disconnection from 149.154.167.51:443/TcpFull complete!
+2024-10-14 22:19:34,775 - INFO - Connecting to 149.154.167.51:443/TcpFull...
+2024-10-14 22:19:34,873 - INFO - Connection to 149.154.167.51:443/TcpFull complete!
+2024-10-14 22:19:35,387 - INFO - Disconnecting from 149.154.167.51:443/TcpFull...
+2024-10-14 22:19:35,387 - INFO - Disconnection from 149.154.167.51:443/TcpFull complete!
+2024-10-14 22:19:35,392 - INFO - Connecting to 149.154.167.51:443/TcpFull...
+2024-10-14 22:19:35,491 - INFO - Connection to 149.154.167.51:443/TcpFull complete!
+2024-10-14 22:19:36,046 - INFO - Работаем с сессией 998976750303.
+2024-10-14 22:19:36,170 - INFO - Отправляем ID: 248555362 через сессию 998976750303.
+2024-10-14 22:19:43,621 - INFO - Отправляем ID: 245500913 через сессию 998976750303.
+2024-10-14 22:19:50,920 - INFO - Disconnecting from 149.154.167.51:443/TcpFull...
+2024-10-14 22:19:50,920 - INFO - Disconnection from 149.154.167.51:443/TcpFull complete!
+2024-10-14 22:19:50,923 - INFO - Connecting to 149.154.167.51:443/TcpFull...
+2024-10-14 22:19:51,020 - INFO - Connection to 149.154.167.51:443/TcpFull complete!
+2024-10-14 22:19:52,364 - INFO - Работаем с сессией 998976731997.
+2024-10-14 22:19:52,672 - INFO - Отправляем ID: 242151436 через сессию 998976731997.
+2024-10-14 22:20:00,106 - INFO - Отправляем ID: 242151436 через сессию 998976731997.
+2024-10-14 22:20:07,340 - INFO - Disconnecting from 149.154.167.51:443/TcpFull...
+2024-10-14 22:20:07,341 - INFO - Disconnection from 149.154.167.51:443/TcpFull complete!
+2024-10-14 22:20:07,344 - INFO - Состояние успешно сохранено в ./state.json.
+2024-10-14 22:20:07,345 - INFO - 127.0.0.1 - - [14/Oct/2024 22:20:07] "POST /api/process_ids HTTP/1.1" 200 -
+2024-10-14 22:30:47,932 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.103:8080
+2024-10-14 22:30:47,932 - INFO - [33mPress CTRL+C to quit[0m
+2024-10-14 22:32:01,766 - INFO - Connecting to 149.154.167.51:443/TcpFull...
+2024-10-14 22:32:01,888 - INFO - Connection to 149.154.167.51:443/TcpFull complete!
+2024-10-14 22:32:02,984 - INFO - Disconnecting from 149.154.167.51:443/TcpFull...
+2024-10-14 22:32:02,984 - INFO - Disconnection from 149.154.167.51:443/TcpFull complete!
+2024-10-14 22:32:02,987 - INFO - Connecting to 149.154.167.51:443/TcpFull...
+2024-10-14 22:32:03,089 - INFO - Connection to 149.154.167.51:443/TcpFull complete!
+2024-10-14 22:32:03,743 - INFO - Disconnecting from 149.154.167.51:443/TcpFull...
+2024-10-14 22:32:03,744 - INFO - Disconnection from 149.154.167.51:443/TcpFull complete!
+2024-10-14 22:32:03,746 - INFO - Connecting to 149.154.167.51:443/TcpFull...
+2024-10-14 22:32:03,842 - INFO - Connection to 149.154.167.51:443/TcpFull complete!
+2024-10-14 22:32:04,934 - INFO - Работаем с сессией 998976750303.
+2024-10-14 22:32:05,097 - INFO - Отправляем ID: 248555362 через сессию 998976750303.
+2024-10-14 22:32:15,546 - INFO - Отправляем ID: 245500913 через сессию 998976750303.
+2024-10-14 22:32:25,798 - INFO - Disconnecting from 149.154.167.51:443/TcpFull...
+2024-10-14 22:32:25,798 - INFO - Disconnection from 149.154.167.51:443/TcpFull complete!
+2024-10-14 22:32:25,801 - INFO - Connecting to 149.154.167.51:443/TcpFull...
+2024-10-14 22:32:25,901 - INFO - Connection to 149.154.167.51:443/TcpFull complete!
+2024-10-14 22:32:27,253 - INFO - Работаем с сессией 998976731997.
+2024-10-14 22:32:27,562 - INFO - Отправляем ID: 242151436 через сессию 998976731997.
+2024-10-14 22:32:38,122 - INFO - Отправляем ID: 242151436 через сессию 998976731997.
+2024-10-14 22:32:48,368 - INFO - Disconnecting from 149.154.167.51:443/TcpFull...
+2024-10-14 22:32:48,368 - INFO - Disconnection from 149.154.167.51:443/TcpFull complete!
+2024-10-14 22:32:48,370 - INFO - Состояние успешно сохранено в ./state.json.
+2024-10-14 22:32:48,371 - INFO - 127.0.0.1 - - [14/Oct/2024 22:32:48] "POST /api/process_ids HTTP/1.1" 200 -
