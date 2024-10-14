@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 from telethon import TelegramClient, functions, errors
-from config import TARGET_BOT, CHANNEL_USERNAME
+from config import TARGET_BOT, CHANNEL_USERNAME, STATE_FILE
 import os
 import json
 import asyncio
@@ -21,6 +21,7 @@ class TelegramSessionManager:
     def __init__(self, sessions_dir, bad_sessions_file):
         self.sessions_dir = sessions_dir
         self.bad_sessions_file = bad_sessions_file
+        self.message_waiting_time = 10
 
     def get_sessions(self):
         sessions = []
@@ -130,7 +131,7 @@ class TelegramSessionManager:
                             line = message["line"]
                             logging.info(f"Отправляем ID: {message_id} через сессию {session_name}.")
                             await client.send_message(TARGET_BOT, message_id)
-                            await asyncio.sleep(10)
+                            await asyncio.sleep(self.message_waiting_time)
                             async for response in client.iter_messages(TARGET_BOT, limit=1):
                                 result.append({"text": response.text, "line": str(line)})
 
@@ -171,12 +172,24 @@ def load_state_from_file():
         return {}
 
 
+def process_ids_in_background(ids, sessions):
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+    result = loop.run_until_complete(session_manager.send_messages_to_bot(ids, sessions))
+    loop.close()
+
+    state_data = load_state_from_file()
+    state_data['last_result'] = result
+    save_state_to_file(state_data)
+
 @app.route('/api/process_ids', methods=['POST'])
-async def process_ids():
+def process_ids():
     data = request.get_json()
+
     if 'ids' not in data:
         logging.error('Поле "ids" обязательно.')
         return jsonify({'error': 'Поле "ids" обязательно.'}), 400
+
     ids = data['ids']
     sessions = session_manager.get_sessions()
 
@@ -184,14 +197,10 @@ async def process_ids():
         logging.error('Нет доступных сессий.')
         return jsonify({'error': 'Нет доступных сессий.'}), 400
 
-    result = await session_manager.send_messages_to_bot(ids, sessions)
+    thread = Thread(target=process_ids_in_background, args=(ids, sessions))
+    thread.start()
 
-    state_data = load_state_from_file()
-    state_data['last_result'] = result
-    save_state_to_file(state_data)
-
-    return jsonify({'result': result})
-
+    return jsonify({'result': f"Отлично, процесс запущен в фоновом режиме. Примерное время ожидания: {session_manager.message_waiting_time // len(ids)}"})
 
 @app.route('/api/get_ids', methods=['GET'])
 def get_ids():
