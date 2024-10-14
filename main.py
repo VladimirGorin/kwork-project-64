@@ -91,6 +91,7 @@ class TelegramSessionManager:
         return valid_sessions
 
     async def send_messages_to_bot(self, ids, sessions):
+        print(ids)
         valid_sessions = await self.sessions_validation(sessions)
         if not valid_sessions:
             raise Exception("Нет валидных сессий")
@@ -114,6 +115,7 @@ class TelegramSessionManager:
                         session_ids = ids[:ids_per_session]
                         ids = ids[ids_per_session:]
                         for message in session_ids:
+                            message = message["id"]
                             logging.info(f"Отправляем ID: {message} через сессию {session_name}.")
                             await client.send_message(TARGET_BOT, message)
                             await asyncio.sleep(6)

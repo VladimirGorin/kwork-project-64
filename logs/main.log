@@ -28,3 +28,8 @@
 2024-10-14 16:39:07,036 - INFO - Disconnecting from 149.154.167.51:443/TcpFull...
 2024-10-14 16:39:07,036 - INFO - Disconnection from 149.154.167.51:443/TcpFull complete!
 2024-10-14 16:39:07,039 - INFO - 127.0.0.1 - - [14/Oct/2024 16:39:07] "POST /api/get_info HTTP/1.1" 200 -
+2024-10-14 18:51:34,183 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.103:8080
+2024-10-14 18:51:34,183 - INFO - [33mPress CTRL+C to quit[0m
