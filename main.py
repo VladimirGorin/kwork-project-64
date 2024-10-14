@@ -135,13 +135,14 @@ class TelegramSessionManager:
                         ids = ids[ids_per_session:]
 
                         for message in session_ids:
-                            message = message["id"]
+                            message_id = message["id"]
+                            line = message["line"]
                             logging.info(f"Отправляем ID: {
-                                         message} через сессию {session_name}.")
-                            await client.send_message(TARGET_BOT, message)
-                            await asyncio.sleep(6)
+                                         message_id} через сессию {session_name}.")
+                            await client.send_message(TARGET_BOT, message_id)
+                            await asyncio.sleep(7)
                             async for response in client.iter_messages(TARGET_BOT, limit=1):
-                                result.append(response.text)
+                                result.append({"text": response.text, "line": str(line)})
 
                 except errors.AuthKeyUnregisteredError:
                     logging.error(f'Необходимо ввести телефон или токен для сессии {
