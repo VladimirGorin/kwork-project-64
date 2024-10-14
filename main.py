@@ -100,14 +100,9 @@ class TelegramSessionManager:
         if not valid_sessions:
             raise Exception("Нет валидных сессий")
         result = []
+        ids_per_session = 10
+
         while ids:
-            valid_sessions_count = len(valid_sessions)
-            if valid_sessions_count == 0:
-                break
-
-            ids_per_session = len(ids) // valid_sessions_count
-            ids_per_session += 1 if ids_per_session * valid_sessions_count < len(ids) else 0
-
             for session_name, json_file in valid_sessions:
                 if not ids:
                     break
@@ -201,7 +196,7 @@ def process_ids():
     thread = Thread(target=process_ids_in_background, args=(ids, sessions))
     thread.start()
 
-    return jsonify({'result': f"Отлично, процесс запущен в фоновом режиме. Примерное время ожидания: {session_manager.message_waiting_time * len(ids)} секунд"})
+    return jsonify({'result': f"Отлично, процесс запущен в фоновом режиме. Примерное время ожидания: {session_manager.message_waiting_time * len(ids) + 5} секунд"})
 
 @app.route('/api/get_ids', methods=['GET'])
 def get_ids():
