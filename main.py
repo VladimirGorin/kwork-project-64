@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from telethon import TelegramClient, functions, errors
 from config import TARGET_BOT, CHANNEL_USERNAME, STATE_FILE
+from threading import Thread
 import os
 import json
 import asyncio
@@ -200,7 +201,7 @@ def process_ids():
     thread = Thread(target=process_ids_in_background, args=(ids, sessions))
     thread.start()
 
-    return jsonify({'result': f"Отлично, процесс запущен в фоновом режиме. Примерное время ожидания: {session_manager.message_waiting_time // len(ids)}"})
+    return jsonify({'result': f"Отлично, процесс запущен в фоновом режиме. Примерное время ожидания: {session_manager.message_waiting_time * len(ids)} секунд"})
 
 @app.route('/api/get_ids', methods=['GET'])
 def get_ids():
