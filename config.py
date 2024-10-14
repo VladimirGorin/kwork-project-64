@@ -1,0 +1,2 @@
+TARGET_BOT = '@EvirmaBot'
+CHANNEL_USERNAME = "@MaxProWB"

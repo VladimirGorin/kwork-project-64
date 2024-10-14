@@ -1,0 +1,3 @@
+telethon==1.37.0
+flask==3.0.3
+asgiref==3.8.1
